@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     password: String,
     userType: {
         type: String,
-        enum: ['SELLER', 'BUYER', 'BOTH'],
+        enum: ['SELLER', 'BUYER'],
         default: 'BUYER'
     },
     status: { type: Number, default: 1 }

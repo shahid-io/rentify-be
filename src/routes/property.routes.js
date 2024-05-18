@@ -4,6 +4,6 @@ const PropertyController = require('../controllers/property.controller');
 const authenticateToken = require('../middlewares/authenticate.token.middleware');
 
 router.get('/', authenticateToken, PropertyController.getProperties)
-router.post('/', authenticateToken, PropertyController.createProperty);
+router.post('/', PropertyController.propertyValidationRules(), authenticateToken, PropertyController.createProperty);
 
 module.exports = router;
