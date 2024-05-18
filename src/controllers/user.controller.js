@@ -12,7 +12,9 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
     try {
         const user = await UserService.login(req.body);
-        res.json(user);
+        const temp = user.toObject();
+        delete temp.password; 
+        res.json(temp);
     } catch (error) {
         res.status(401).json({ message: error.message });
     }

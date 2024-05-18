@@ -6,8 +6,12 @@ const userSchema = new mongoose.Schema({
     email: { type: String, unique: true },
     phone: String,
     password: String,
-    userType: String,
-    status: { type: Number, default: 1 }  
+    userType: {
+        type: String,
+        enum: ['SELLER', 'BUYER', 'BOTH'],
+        default: 'BUYER'
+    },
+    status: { type: Number, default: 1 }
 });
 
 const User = mongoose.model('User', userSchema);
