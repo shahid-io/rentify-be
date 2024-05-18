@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const PropertyController = require('../controllers/property.controller');
+const authenticateToken = require('../middlewares/authenticate.token.middleware');
 
-router.post('/properties', PropertyController.createProperty);
+router.get('/', authenticateToken, PropertyController.getProperties)
+router.post('/', authenticateToken, PropertyController.createProperty);
 
 module.exports = router;

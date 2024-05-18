@@ -11,11 +11,15 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
     try {
-        const user = await UserService.login(req.body);
-        const temp = user.toObject();
-        delete temp.password; 
-        res.json(temp);
+        const { user, token } = await UserService.login(req.body);
+        res.json({
+            message: 'Login successful',
+            token,
+            userId: user._id,
+            email: user.email
+        });
     } catch (error) {
         res.status(401).json({ message: error.message });
     }
 };
+
