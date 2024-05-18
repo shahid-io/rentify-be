@@ -18,62 +18,28 @@ A step-by-step series of examples that tell you how to get a development environ
 
 Clone the repo:
 
-bash
-Copy code
-git clone https://github.com/shahid-io/rentify-be.git
+```
+
+git clone <https://github.com/shahid-io/rentify-be.git>
 Install NPM packages:
 
-bash
-Copy code
-npm install
-Create a .env file in the root directory and update the following keys:
+# Property Management API
 
-plaintext
-Copy code
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-Run the server:
+Welcome to the Property Management API repository. This API allows for robust management of property listings, including operations such as creating, retrieving, updating, and deleting properties. It's designed to cater to both sellers who wish to list their properties and buyers interested in viewing listings.
 
-bash
-Copy code
-npm start
-Running the tests
-Explain how to run the automated tests for this system:
+### Property API
 
-bash
-Copy code
-npm test
-Deployment
-Add additional notes about how to deploy this on a live system.
+- GET /properties/: Fetch all properties.
+- GET /properties/:id: Fetch all properties for a specific seller.
+- POST /properties/: Create a new property listing.
+- PUT /properties/:id: Update an existing property listing.
+- DELETE /properties/:id: Delete a property listing.
 
 Built With
-Node.js - The runtime environment
-Express - The web framework used
-MongoDB - Database
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+- Node.js - The runtime environment
+- Express - The web framework used
+- MongoDB - Database
 
 Authors
-Your Name - Initial work - shahid-io
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
-vbnet
-Copy code
-
-
-### Notes:
-- Make sure to update the "Authors" section with real names and links.
-- If you have a CONTRIBUTING.md or LICENSE.md, ensure their links are correct.
-- Adjust the "Built With", "Deployment", and "Acknowledgments" sections based on your actual project specifics and acknowledgments.
-
-This markdown formatted README should provide a clear guide for setting up the project, contributing to it, and understanding its structure and dependencies. Make sure to replace placeholders with actual data where necessary.
-
-This template covers the basic needs for a project README, providing clear instructi
+Shahid - Initial work - shahid-io

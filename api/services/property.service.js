@@ -14,7 +14,6 @@ exports.getAllProperties = async (page = 1, limit = 10) => {
         totalPages: Math.ceil(total / pageSize),
         totalProperties: total
     };
-
 }
 
 exports.createProperty = async (propertyData, userId) => {
@@ -29,7 +28,6 @@ exports.getPropertiesBySeller = async (userId, page = 1, limit = 10) => {
         .skip(skip)
         .limit(pageSize);
     const total = await Property.countDocuments({ sellerId: userId });
-
     return {
         properties,
         currentPage: page,
