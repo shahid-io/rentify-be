@@ -13,8 +13,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    res.send.json({ message: "Welcome to Rentify API" })
-})
+    res.json({ message: "Welcome to Rentify API" });
+});
+
 
 app.use('/api/users', userRoutes);
 app.use('/api/properties', propertyRoutes);
