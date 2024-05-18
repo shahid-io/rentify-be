@@ -11,6 +11,11 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+    res.send.json({ message: "Welcome to Rentify API" })
+})
+
 app.use('/api/users', userRoutes);
 app.use('/api/properties', propertyRoutes);
 
