@@ -55,14 +55,18 @@ exports.createProperty = async (req, res) => {
 
 
 exports.getPropertiesBySeller = async (req, res) => {
+    const userId = req.user.id;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+
     try {
-        const userId = req.user.id;
-        const properties = await PropertyService.getPropertiesBySeller(userId);
-        res.json(properties);
+        const result = await PropertyService.getPropertiesBySeller(userId, page, limit);
+        res.json(result);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
+
 
 exports.updateProperty = async (req, res) => {
     const errors = validationResult(req);

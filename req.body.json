@@ -1,5 +1,18 @@
 [
     {
+        "firstName": "Sanjay",
+        "lastName": "Singh",
+        "email": "sanjay@gmail.com",
+        "phone": "7277751890",
+        "password": "Hello@123",
+        "userType": "SELLER",
+        "status": 1
+    },
+    {
+        "email": "shahid@gmail.com",
+        "password": "Hello@123"
+    },
+    {
         "place": "789 Maple Avenue",
         "area": 1800,
         "bedrooms": 4,
