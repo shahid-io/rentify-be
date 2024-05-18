@@ -1,0 +1,50 @@
+[
+    {
+        "place": "789 Maple Avenue",
+        "area": 1800,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "nearbyHospitals": "South General Hospital",
+        "nearbyColleges": "City Community College"
+    },
+    {
+        "place": "456 Pine Road",
+        "area": 1200,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "nearbyHospitals": "Northview Hospital, East Clinic",
+        "nearbyColleges": "Metro University, Tech College"
+    },
+    {
+        "place": "1012 Birch Street",
+        "area": 1400,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "nearbyHospitals": "West End Medical Center",
+        "nearbyColleges": "State University, Greenfield College"
+    },
+    {
+        "place": "330 Cedar Blvd",
+        "area": 2100,
+        "bedrooms": 5,
+        "bathrooms": 4,
+        "nearbyHospitals": "Central Hospital, Lakeside Clinic",
+        "nearbyColleges": "National University, King's College"
+    },
+    {
+        "place": "850 Elm Circle",
+        "area": 1600,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "nearbyHospitals": "Riverside Hospital, Clinic Plus",
+        "nearbyColleges": "Highland College, River Town University"
+    },
+    {
+        "place": "850 Elm Circle",
+        "area": 1600,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "nearbyHospitals": "Riverside Hospital, Clinic Plus",
+        "nearbyColleges": "Highland College, River Town University"
+    }
+]

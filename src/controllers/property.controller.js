@@ -16,22 +16,33 @@ exports.getProperties = async (req, res) => {
     res.status(201).json(properties);
 }
 
+exports.getAllProperties = async (req, res) => {
+    try {
+        const properties = await PropertyService.getAllProperties();
+        res.json(properties);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
 exports.createProperty = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
-
     try {
-        const userId = req.user.id;
+
+        const userId = req.user.userId;
         const propertyData = {
+            sellerId: userId,
             place: req.body.place,
             area: req.body.area,
             bedrooms: req.body.bedrooms,
             bathrooms: req.body.bathrooms,
             nearbyHospitals: req.body.nearbyHospitals,
             nearbyColleges: req.body.nearbyColleges,
-            sellerId: userId
+
         };
 
         const property = await PropertyService.createProperty(propertyData, userId);
@@ -41,3 +52,49 @@ exports.createProperty = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+exports.getPropertiesBySeller = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const properties = await PropertyService.getPropertiesBySeller(userId);
+        res.json(properties);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+exports.updateProperty = async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    const propertyId = req.params.id;
+    const userId = req.user.id;
+
+    try {
+        const updatedProperty = await PropertyService.updateProperty(propertyId, userId, req.body);
+        res.json(updatedProperty);
+    } catch (error) {
+        if (error.message === 'Property not found or not authorized') {
+            return res.status(404).json({ message: error.message });
+        }
+        res.status(500).json({ message: error.message });
+    }
+};
+exports.deleteProperty = async (req, res) => {
+    const propertyId = req.params.id;
+    const userId = req.user.id;
+
+    try {
+        await PropertyService.deleteProperty(propertyId, userId);
+        res.status(204).send();
+    } catch (error) {
+        if (error.message === 'Property not found or not authorized') {
+            return res.status(404).json({ message: error.message });
+        }
+        res.status(500).json({ message: error.message });
+    }
+};
+
